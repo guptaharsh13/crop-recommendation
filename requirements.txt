@@ -8,3 +8,4 @@ torchvision==0.9.1+cpu
 requests
 Pillow
 gunicorn == 20.0.4
+Flask-Cors

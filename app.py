@@ -11,6 +11,9 @@ import torch
 from torchvision import transforms
 from PIL import Image
 from utils.model import ResNet9
+from flask_cors import CORS
+import os
+
 # ==============================================================================================
 
 # -------------------------LOADING THE TRAINED MODELS -----------------------------------------------
@@ -96,6 +99,9 @@ def weather_fetch(city_name):
 
 
 app = Flask(__name__)
+CORS(app)
+
+port = os.environ.get('PORT', 80)
 
 # render home page
 
@@ -231,4 +237,4 @@ def disease_prediction():
 
 # ===============================================================================================
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=False, host="0.0.0.0",port=port)
